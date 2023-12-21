@@ -1,22 +1,14 @@
-# Создайте функцию, которая создаёт файлы с указанным расширением.
-# Функция принимает следующие параметры:
-# ✔ расширение
-# ✔ минимальная длина случайно сгенерированного имени, по умолчанию 6
-# ✔ максимальная длина случайно сгенерированного имени, по умолчанию 30
-# ✔ минимальное число случайных байт, записанных в файл, по умолчанию 256
-# ✔ максимальное число случайных байт, записанных в файл, по умолчанию 4096
-# ✔ количество файлов, по умолчанию 42
-# ✔ Имя файла и его размер должны быть в рамках переданного диапазона.
+# Преобразовать слова «разработка», «администрирование», «protocol»,
+# «standard» из строкового представления в байтовое и выполнить
+# обратное преобразование (используя методы encode и decode).
+#
+# Подсказки:
+# --- используйте списки и циклы, не дублируйте функции
 
-from Task2 import rnd_name
-from random import randint
-
-
-def create_files(extension, max_len_name=30, min_len_name=6, min_byte=256, max_byte=4096, qty_file=42):
-    for _ in range(qty_file):
-    with open(rnd_name() + extension, 'w') as f:
-        f.write(str(bytes([randint(0, 255) for _ in range(randint(min_byte, max_byte))])))
-
-
-if __name__ == '__main__':
-    create_files('.txt')
+my_list = ['разработка', 'администрирование', 'protocol', 'standard']
+for line in my_list:
+    var_bytes = line.encode('utf-8')
+    print(var_bytes)
+    var_srt = bytes.decode(var_bytes, 'utf-8')
+    print(var_srt)
+    print()

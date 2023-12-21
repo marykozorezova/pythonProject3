@@ -1,26 +1,15 @@
-# Напишите функцию, которая генерирует псевдоимена.
-# ✔ Имя должно начинаться с заглавной буквы, состоять из 4-7 букв, среди которых обязательно должны быть гласные.
-# ✔ Полученные имена сохраните в файл.
+# Каждое из слов «class», «function», «method» записать в байтовом формате
+# без преобразования в последовательность кодов
+# не используя!!! методы encode и decode)
+# и определить тип, содержимое и длину соответствующих переменных.
+#
+# Подсказки:
+# --- b'class' - используйте маркировку b''
+# --- используйте списки и циклы, не дублируйте функции
 
-from random import randint
-VOWELS = "AEYUIOaeuioy"
+my_list = [b'class', b'function', b'method']
 
-
-def rnd_name():
-    name_len = randint(4, 7)
-    while True:
-        name = ""
-        for i in range(name_len):
-            name += chr(randint(65, 90))
-        for i in name:
-            if i in VOWELS:
-                return name.capitalize()
-
-
-def rnd_name_in_file(count, file_name):
-    with open(file_name, "a") as f:
-        for i in range(count):
-            f.write(rnd_name()+"\n")
-
-if __name__== "__main__":
-    rnd_name_in_file(5, r"names.txt")
+for line in my_list:
+    print('Тип переменной: {}\n'.format(type(line)))
+    print('Содержание переменной: {}\n'.format(line))
+    print('Длина переменной: {}\n'.format(len(line)))
